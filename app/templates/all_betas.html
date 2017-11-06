@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Select Date Range for Beta Graph</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <form id="beta_window_selection_form" class="form">
+        <div class="col-xs-6">
+          <label>Start Date</label>
+          <input id="start_date"
+                 class="form-control"
+                 placeholder="YYYY-MM-DD" />
+        </div>
+        <div class="col-xs-6">
+          <label>End Date</label>
+          <input id="end_date"
+                 class="form-control"
+                 placeholder="YYYY-MM-DD" />
+        </div>
+        <div class="col-xs-12">
+          <br />
+        </div>
+        <div class="col-xs-6">
+          <label>Ticker to Compute Beta</label>
+          <select id="ticker_picker" class="form-control">
+            <option selected="selected" value="all">All Tickers</option>
+            {% for s in symbols %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-xs-6">
+          <label>Ticker to Compute Beta Against</label>
+          <select id="comparator_picker" class="form-control">
+            <option selected="selected" value="default">S&P 500</option>
+            {% for s in symbols %}
+            {% if s.name != "^GSPC" %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-xs-12 text-right">
+          <br />
+          <button id="beta-new-data" class="btn btn-primary"><span class="glyphicon glyphicon-repeat"></span>&nbsp;&nbsp;Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-xs-12" id="chart_container">
+    <canvas id="graph_canvas" style="width:900px;height:400px;"></canvas>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="/static/js/Hammer.min.js"></script>
+<script type="text/javascript" src="/static/js/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="/static/js/Chart.Zoom.min.js"></script>
+<script type="text/javascript" src="/static/js/all_betas.js"></script>
+{% endblock %}

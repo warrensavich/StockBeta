@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Available Symbols</h1>
+<table class="table-striped table-condensed table table-hover">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in symbols %}
+    <tr>
+      <td>{{ s.name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

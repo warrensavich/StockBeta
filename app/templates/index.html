@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome</h1>
+<p>To view symbols loaded on the application click Symbol List above, otherwise please navigate to the Beta Graph to view a scatter plot of computed betas.</p>
+<p>Although the Beta Graph viewer defaults to querying all symbols, the data source is rather slow while its querying. As a means of quicker testing for computing betas this platform has an added an api resource that allows a user to compute betas for a single stock at a time also.</p>
+<p>As an aditional feature this system allows users to diverge from the standard beta computation against the S&P 500, by picking an alternative symbol to use as the baseline.</p>
+{% endblock %}

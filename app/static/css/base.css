@@ -1,0 +1,27 @@
+.content_wrapper {
+    margin-top: 70px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.glyphicon-spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+#chart_container {
+    max-height: 400px;
+}
